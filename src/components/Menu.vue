@@ -1,21 +1,21 @@
 <template>
   <div class="app-container">
     <header class="header">
-    <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :ellipsis="false"
-      @select="handleSelect" :router="true">
-      <div class="logo" @click="$router.push('/')">
-        <img src="../../public/static/image/hs3_c_header__logo.png" alt="">
-      </div>
-      <div class="flex-grow"></div>
-      <el-menu-item index="/" route>首页</el-menu-item>
-      <el-menu-item index="/about">哈啰业务</el-menu-item>
-      <el-menu-item index="3">哈啰科技</el-menu-item>
-      <el-menu-item index="4">咨询中心</el-menu-item>
-      <el-menu-item index="5">关于我们</el-menu-item>
-      <el-menu-item index="6">联系我们</el-menu-item>
-    </el-menu>
-  </header>
-  <router-view />
+      <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :ellipsis="false"
+        @select="handleSelect" :router="true">
+        <div class="logo" @click="$router.push('/')">
+          <img src="../../public/static/image/hs3_c_header__logo.png" alt="">
+        </div>
+        <div class="flex-grow"></div>
+        <el-menu-item index="/" route>首页</el-menu-item>
+        <el-menu-item index="/about">哈啰业务</el-menu-item>
+        <el-menu-item index="/about">哈啰科技</el-menu-item>
+        <el-menu-item index="/about">咨询中心</el-menu-item>
+        <el-menu-item index="/about">关于我们</el-menu-item>
+        <el-menu-item index="/about">联系我们</el-menu-item>
+      </el-menu>
+    </header>
+    <router-view />
   </div>
 
 
@@ -32,12 +32,13 @@ const handleSelect = (key: string, keyPath: string[]) => {
 </script>
 
 <style lang="less" scoped>
-.app-container{
+.app-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+
 .header {
   height: 80px;
   width: 100%;
@@ -45,6 +46,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
   top: 0;
   padding: 0 276px;
   z-index: 11;
+  transition: all .6s cubic-bezier(.51,.01,0,1);
 }
 
 .el-menu-demo {
@@ -52,7 +54,8 @@ const handleSelect = (key: string, keyPath: string[]) => {
   background-color: transparent;
   align-items: center;
   border: 0;
-  
+
+
   &>.el-menu-item {
     font-size: 16px;
     color: #fff;
@@ -67,12 +70,12 @@ const handleSelect = (key: string, keyPath: string[]) => {
   }
 }
 
-.el-menu--horizontal>.el-menu-item.is-active{
+.el-menu--horizontal>.el-menu-item.is-active {
   color: #fff !important;
   border-bottom: 2px solid #fff;
 }
 
-.el-menu--horizontal .el-menu-item:not(.is-disabled):focus{
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus {
   background-color: transparent;
 }
 
