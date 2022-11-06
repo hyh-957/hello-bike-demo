@@ -1,7 +1,7 @@
 <template>
   <section class="top__banner">
-    <video id="video-player" src="../../public/static/video/home_bg_video_v3.mp4" autoplay loop
-      poster="../../public/static/image/home_bg_video_v3.jpg"></video>
+    <video id="video-player" src="../../../public/static/video/home_bg_video_v3.mp4" autoplay loop
+      poster="../../../public/static/image/home_bg_video_v3.jpg"></video>
     <div class="banner__body">
       <div class="slogan">
         <span class="line line-1">哈啰</span>
@@ -9,11 +9,11 @@
       </div>
       <div class="operation">
         <div class="operation--button download">
-          <img src="../../public/static/image/index__download.png" alt="下载">
+          <img src="../../../public/static/image/index__download.png" alt="下载">
           <span>下载客户端</span>
           <div class="operation__qr">
             <div class="operation__qr--body">
-              <img src="../../public/static/image/index__download.png" alt="">
+              <img src="../../../public/static/image/index__download.png" alt="">
             </div>
           </div>
         </div>

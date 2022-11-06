@@ -1,9 +1,10 @@
 <template>
-  <header class="header">
+  <div class="app-container">
+    <header class="header">
     <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :ellipsis="false"
       @select="handleSelect" :router="true">
-      <div class="logo1" @click="$router.push('/')">
-        <img class="logo" src="../../public/static/image/hs3_c_header__logo.png" alt="">
+      <div class="logo" @click="$router.push('/')">
+        <img src="../../public/static/image/hs3_c_header__logo.png" alt="">
       </div>
       <div class="flex-grow"></div>
       <el-menu-item index="/" route>首页</el-menu-item>
@@ -14,8 +15,11 @@
       <el-menu-item index="6">联系我们</el-menu-item>
     </el-menu>
   </header>
-
   <router-view />
+  </div>
+
+
+
 </template>
 
 <script lang="ts" setup>
@@ -28,12 +32,18 @@ const handleSelect = (key: string, keyPath: string[]) => {
 </script>
 
 <style lang="less" scoped>
+.app-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .header {
   height: 80px;
+  width: 100%;
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 0 276px;
   z-index: 11;
 }
 
@@ -46,6 +56,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
   &>.el-menu-item {
     font-size: 16px;
     color: #fff;
+    width: 104px;
   }
 
   &>.el-menu-item:hover {
