@@ -68,13 +68,13 @@
 
 
 <style scoped lang="less">
+
 a {
   text-decoration: none;
   color: #999;
 }
 
 .footer {
-  width: 100%;
   font-size: 12px;
 }
 
@@ -82,7 +82,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 950px;
+  width: 992px;
   margin: 0 auto;
 }
 
@@ -133,5 +133,20 @@ a {
   width: 26px;
   background-image: url(https://www.hello-inc.com/online-public/layout/layout__footer--sina.png);
   background-size: contain;
+}
+
+@media screen and (max-width: 992px) {
+  .content {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .footer-columns{
+    margin: 0;
+  }
+
+  .footer-column{
+    padding: 20px;
+  }
 }
 </style>
