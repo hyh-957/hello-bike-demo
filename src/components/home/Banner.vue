@@ -29,7 +29,6 @@
 <style lang="less" scoped>
 .top__banner {
   width: 100%;
-  min-width: 24rem;
   height: 100vh;
 }
 
@@ -44,8 +43,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50rem;
-  min-width: 24rem;
+  width: 992px;
   z-index: 3;
 }
 
@@ -53,13 +51,13 @@
   display: flex;
   flex-direction: column;
   color: #fff;
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: 500;
 }
 
 .operation {
   display: inline-flex;
-  margin-top: 3rem;
+  margin-top: 48px;
 }
 
 .operation--button {
@@ -67,15 +65,15 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 8rem;
-  height: 2rem;
+  width: 128px;
+  height: 32px;
   background: rgba(0, 0, 0, .2);
-  border-radius: .02rem;
-  border: .01rem solid #fff;
+  border-radius: 3px;
+  border: 1px solid #fff;
   color: #fff;
   text-align: center;
-  line-height: 1rem;
-  font-size: 1rem;
+  line-height: 16px;
+  font-size: 16px;
   cursor: pointer;
   opacity: .7;
   transition: all .3s ease;
@@ -89,31 +87,31 @@
   &:hover>.operation__qr {
     visibility: visible;
     opacity: 1;
-    top: 3rem;
+    top: 48px;
   }
 }
 
 
 
 .operation--button>img {
-  width: 1rem;
-  height: 1rem;
-  margin-right: .6rem;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
 }
 
 .operation__qr {
   position: absolute;
   transition: all .3s ease;
   transform-origin: 50% 0 0;
-  width: 8rem;
-  height: 8rem;
+  width: 128px;
+  height: 128px;
   box-sizing: border-box;
   background: #fff;
-  top: 3rem;
-  padding: .2rem;
+  top: 4px;
+  padding: 4px;
   opacity: 0;
   cursor: initial;
-  border-radius: .2rem;
+  border-radius: 4px;
   pointer-events: none;
 }
 
@@ -131,12 +129,18 @@
     content: "";
     position: absolute;
     left: 50%;
-    top: -1rem;
+    top: -16px;
     width: 0;
     height: 0;
-    border: .5rem solid transparent;
-    border-bottom: .5rem solid #fff;
-    margin-left: -0.5rem;
+    border: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    margin-left: -8px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .banner__body {
+    width: 100%;
   }
 }
 </style>

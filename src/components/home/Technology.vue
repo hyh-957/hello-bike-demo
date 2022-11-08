@@ -23,7 +23,6 @@
 <style scoped lang="less">
 .technology {
   height: 100vh;
-  width: 100;
   width: 100%;
 }
 
@@ -41,9 +40,9 @@
 
 .tech-body{
   color: #fff;
-  position: absolute;
-  top: 80px;
-  left: 280px;
+  width: 992px;
+  margin: 0 auto;
+  padding-top: 80px;
 }
 
 .tech-body-title{
@@ -54,5 +53,12 @@
 
 .tech-body-desc{
   font-size: 25px;
+}
+@media screen and (max-width: 992px) {
+  .tech-body{
+
+  width: 100%;
+ 
+}
 }
 </style>

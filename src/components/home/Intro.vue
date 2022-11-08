@@ -36,6 +36,7 @@ import { ref } from "vue";
 .intro > .container{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .container>.video,
@@ -76,5 +77,25 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .intro > .container{
+  flex-direction: column;
+}
+
+.container>.video,
+.container>.text {
+  width: 100%;
+}
+
+.preview-image{
+  width: 100%;
+}
+
+.text {
+  margin:0;
+  padding: 40px;
+}
 }
 </style>

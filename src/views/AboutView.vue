@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <div class="about"></div>
+
 </template>
+
+<script lang="ts" setup>
+
+</script>
+
+
+<style scoped lang="less">
+  .about{
+    height: 100vh;
+    width: 100vw;
+    background-color: #f56c6c;
+  }
+</style>

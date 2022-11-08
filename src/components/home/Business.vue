@@ -43,13 +43,15 @@
 .business {
   height: 700px;
   width: 100%;
-  padding: 80px 276px;
+  padding: 80px 0;
 }
 
 .container {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 0 auto;
+  width: 992px;
 }
 
 .title {
@@ -138,5 +140,12 @@
   &.is-active>.el-carousel__button{
     background-color: #0096ff;;
   }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+
+  width: auto;
+}
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <!-- <Banner></Banner>
+  <Banner></Banner>
   <Intro></Intro>
   <Business></business>
   <Technology></Technology>
-  <Social></Social> -->
+  <Social></Social>
 </template>
 <script lang="ts" setup>
 import Banner from "@/components/home/Banner.vue";

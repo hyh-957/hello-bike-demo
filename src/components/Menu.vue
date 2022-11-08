@@ -1,31 +1,36 @@
 <template>
 
-    <header class="header">
-      <div class="container">
-        <div class="logo" @click="$router.push('/')">
-          <img src="../../public/static/image/hs3_c_header__logo.png" alt="">
-          <button>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+  <header class="header">
+    <div class="container" :class="{ 'c-container': isCollapse && isCollapse1 }">
+      <div class="left-header">
+        <div @click="$router.push('/')">
+          <img class="logo" src="../../public/static/image/hs3_c_header__logo.png" alt="">
         </div>
-      <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :ellipsis="false"
-        @select="handleSelect" :router="true">
-        
-        <!-- <div class="flex-grow"></div> -->
-        <el-menu-item index="/" route>首页</el-menu-item>
-        <el-menu-item index="/about">哈啰业务</el-menu-item>
-        <el-menu-item index="/about">哈啰科技</el-menu-item>
-        <el-menu-item index="/about">咨询中心</el-menu-item>
-        <el-menu-item index="/about">关于我们</el-menu-item>
-        <el-menu-item index="/about">联系我们</el-menu-item>
-      </el-menu>
+        <button class="collapse-button" @click="collapse()">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="right-header" :class="{ 'c-right-header': isCollapse && isCollapse1 }">
+        <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :ellipsis="false"
+          @select="handleSelect" :router="true" :class="{ 'c-el-menu-demo': isCollapse && isCollapse1 }">
+          <!-- <div class="flex-grow"></div> -->
+          <el-menu-item index="/" route>首页</el-menu-item>
+          <el-menu-item index="/about">哈啰业务</el-menu-item>
+          <el-menu-item index="/about">哈啰科技</el-menu-item>
+          <el-menu-item index="/about">咨询中心</el-menu-item>
+          <el-menu-item index="/about">关于我们</el-menu-item>
+          <el-menu-item index="/about">联系我们</el-menu-item>
+        </el-menu>
       </div>
 
-    </header>
-    <router-view />
- 
+
+    </div>
+
+  </header>
+  <router-view />
+
 
 
 
@@ -33,30 +38,51 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
-
+import { onMounted } from 'vue'
 const activeIndex = ref("1");
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath);
 };
+
+const isCollapse = ref(false);
+const isCollapse1 = ref(false);
+const collapse = () => {
+  isCollapse.value = !isCollapse.value;
+  console.log(isCollapse.value);
+}
+
+onMounted(() => {
+  isCollapse1.value = document.documentElement.clientWidth < 992;
+  window.addEventListener('resize', (ev) => {
+    console.log(document.documentElement.clientWidth)
+    isCollapse1.value = document.documentElement.clientWidth < 992;
+  })
+})
+
 </script>
 
 <style lang="less" scoped>
-
-
 .header {
   position: fixed;
   top: 0;
   z-index: 11;
-  transition: all .6s cubic-bezier(.51,.01,0,1);
-  background-color: aqua;
+  transition: all .6s cubic-bezier(.51, .01, 0, 1);
 }
 
-.container{
+.container {
   display: flex;
   height: 80px;
   width: 992px;
   align-items: center;
   justify-content: space-between;
+}
+
+.left-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
 }
 
 .el-menu-demo {
@@ -97,15 +123,53 @@ const handleSelect = (key: string, keyPath: string[]) => {
 
 }
 
-.icon-bar{
-  background: #555;
-    height: 2px;
-    margin: 6px;
-    width: 26px;
-    display: block;
+.collapse-button {
+  display: none;
+  background-color: transparent;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.icon-bar {
+  background: #fff;
+  height: 2px;
+  margin: 6px;
+  width: 26px;
+  display: block;
 }
 
 .flex-grow {
   flex-grow: 1;
+}
+
+@media screen and (max-width: 992px) {
+  .header {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .right-header {
+    display: none;
+  }
+
+  .collapse-button {
+    display: block;
+  }
+}
+
+.c-container {
+  flex-direction: column;
+  height: 100%;
+}
+
+.c-right-header {
+  display: block;
+}
+
+.c-el-menu-demo {
+  flex-direction: column;
 }
 </style>
