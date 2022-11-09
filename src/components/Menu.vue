@@ -13,8 +13,8 @@
         </button>
       </div>
       <div class="right-header" :class="{ 'c-right-header': isCollapse && isCollapse1 }">
-        <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :ellipsis="false"
-          @select="handleSelect" :router="true" :class="{ 'c-el-menu-demo': isCollapse && isCollapse1 }">
+        <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :ellipsis="false" :router="true"
+          :class="{ 'c-el-menu-demo': isCollapse && isCollapse1 }">
           <!-- <div class="flex-grow"></div> -->
           <el-menu-item index="/" route>首页</el-menu-item>
           <el-menu-item index="/about">哈啰业务</el-menu-item>
@@ -39,22 +39,24 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { onMounted } from 'vue'
-const activeIndex = ref("1");
-const handleSelect = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath);
-};
+
 
 const isCollapse = ref(false);
 const isCollapse1 = ref(false);
 const collapse = () => {
+  if (!isCollapse.value) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'initial';
+  }
   isCollapse.value = !isCollapse.value;
-  console.log(isCollapse.value);
 }
 
 onMounted(() => {
   isCollapse1.value = document.documentElement.clientWidth < 992;
   window.addEventListener('resize', (ev) => {
-    console.log(document.documentElement.clientWidth)
+    // console.log(document.documentElement.clientWidth)
+    document.body.style.overflow = 'initial';
     isCollapse1.value = document.documentElement.clientWidth < 992;
   })
 })
@@ -67,6 +69,7 @@ onMounted(() => {
   top: 0;
   z-index: 11;
   transition: all .6s cubic-bezier(.51, .01, 0, 1);
+  width: 100%;
 }
 
 .container {
@@ -75,6 +78,7 @@ onMounted(() => {
   width: 992px;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 .left-header {
@@ -162,7 +166,8 @@ onMounted(() => {
 
 .c-container {
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
+  justify-content: flex-start;
 }
 
 .c-right-header {
